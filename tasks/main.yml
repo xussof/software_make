@@ -1,22 +1,28 @@
 ---
-- name: Installing make packages using apt
-  become: true
-  apt:
-    pkg: "make"
-    update_cache: yes
-    state: latest
-  when: ansible_distribution == 'Ubuntu'
+#- name: Installing make packages using apt
+#  become: true
+#  apt:
+#    pkg: "make"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'Ubuntu'
 
-- name: Installing make packages using yum
-  become: true
-  yum:
-    pkg: "make"
-    update_cache: yes
-    state: latest
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+#- name: Installing make packages using yum
+#  become: true
+#  yum:
+#    pkg: "make"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: Installing make packages using pacman
-  pacman:
+#- name: Installing make packages using pacman
+#  pacman:
+#    name: "make"
+#    state: present
+#  when: ansible_distribution == 'MacOSX'
+
+- name: Installing make packages
+  become: true
+  package:
     name: "make"
     state: present
-  when: ansible_distribution == 'MacOSX'
